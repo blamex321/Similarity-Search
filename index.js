@@ -10,10 +10,10 @@ const videoFile = fs.createWriteStream("video.mp3");
 
 videoStream.pipe(videoFile);
 
-videoFile.on("finish", () => {
-    videoFile.close(() => {
+videoFile.on("finish",  () => {
+    videoFile.close(async () => {
       const vidPath = path.join(__dirname, "video.mp3");
-      getWhisper(vidPath);
+      const result = await getWhisper(vidPath);
       
       let query = "what are the limitations of flirting?";
       querySearch(query);
