@@ -37,7 +37,7 @@ const getWhisper = (p) => {
   async function getWhisper() {
     const transcription = await openai.audio.transcriptions.create({
       file: fs.createReadStream(curr),
-      model: "whisper-1",
+      model: "gpt-transcribe",
     });
 
     console.log("Transcription:", transcription.text);
